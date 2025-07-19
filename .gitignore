@@ -1,0 +1,5 @@
+# Generated files 
+*.o
+.cache/
+dwm
+compile_commands.json

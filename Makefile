@@ -6,7 +6,7 @@ include config.mk
 SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
-all: dwm
+all: dwm compile_commands
 
 .c.o:
 	${CC} -c ${CFLAGS} $<
@@ -29,6 +29,12 @@ dist: clean
 	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
 	gzip dwm-${VERSION}.tar
 	rm -rf dwm-${VERSION}
+
+compile_commands:
+	compiledb -n make
+	compdb -p ./ list > compile_commands_with_headers.json 2>/dev/null
+	rm compile_commands.json
+	mv compile_commands_with_headers.json compile_commands.json
 
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin
