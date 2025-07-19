@@ -72,3 +72,6 @@ A default config.h is provided with sensible default bindings and settings:
 
 `borderpx` has been increased to 2px (cosmetic only).
 
+### Patches
+
+A list of pre-applied patches can be found in the `patches/` directory.
