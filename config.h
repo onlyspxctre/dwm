@@ -1,4 +1,6 @@
 #include <X11/XF86keysym.h>
+#include "unfloat.c"
+
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
@@ -63,6 +65,7 @@ static const char *termcmd[]  = { "st", NULL };
 
 static const char *brightnessup[] = { "brightnessctl", "s", "5%+" };
 static const char *brightnessdown[] = { "brightnessctl", "s", "5%-" };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
@@ -80,6 +83,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+    { MODKEY|ShiftMask,             XK_BackSpace,unfloatvisible, {.v = &layouts[0]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },

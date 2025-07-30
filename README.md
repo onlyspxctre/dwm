@@ -61,6 +61,7 @@ A default config.h is provided with sensible default bindings and settings:
 | `SUPER+H` | Decrement master stack size |
 | `SUPER+L` | Increment master stack size |
 | `SUPER+RETURN` | Zoom (move focused window to master stack) |
+| `SUPER+L_SHIFT+BACKSPACE` | Unfloat visible |
 | `SUPER+L_SHIFT+Q` | Exit dwm |
 
 
