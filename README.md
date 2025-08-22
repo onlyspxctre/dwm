@@ -54,6 +54,7 @@ A default config.h is provided with sensible default bindings and settings:
 | `SUPER+(1-9)` | Switch tag |
 | `SUPER+R` | dmenu |
 | `SUPER+R_Shift` | st |
+| `SUPER+L_Shift+Print` | Screenshot (*requires* shotgun) |
 | `SUPER+C` | Close active window |
 | `SUPER+B` | Toggle status bar |
 | `SUPER+J` | Focus prev |

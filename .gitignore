@@ -2,5 +2,8 @@
 *.o
 *.orig
 .cache/
-dwm
+.ccls-cache/
 compile_commands.json
+
+# Binaries
+dwm

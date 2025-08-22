@@ -97,6 +97,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { 0,                            XF86XK_MonBrightnessUp, spawn, { .v = brightnessup } }, 
     { 0,                            XF86XK_MonBrightnessDown, spawn, { .v = brightnessdown } }, 
+    { MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("shotgun -s ~/pictures/shotgun/shotgun-$(date +%Y_%m_%d-%k_%M_%S).png") }, 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
