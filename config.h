@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "st",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+    { "Chromium","NULL",    "Bitwarden",            0,          1,          0,         0,        -1 },
 };
 
 /* layout(s) */
@@ -65,6 +66,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *browsercmd[] = { "chromium", NULL };
 
 static const char *brightnessup[] = { "brightnessctl", "s", "5%+" };
 static const char *brightnessdown[] = { "brightnessctl", "s", "5%-" };
@@ -73,6 +75,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,		                XK_Shift_R,spawn,          {.v = termcmd } },
+	{ MODKEY,		                XK_backslash,  spawn,          {.v = browsercmd } },
 	{ MODKEY,		                XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -97,7 +100,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { 0,                            XF86XK_MonBrightnessUp, spawn, { .v = brightnessup } }, 
     { 0,                            XF86XK_MonBrightnessDown, spawn, { .v = brightnessdown } }, 
-    { MODKEY|ShiftMask,             XK_Print,  spawn,          SHCMD("shotgun -s ~/pictures/shotgun/shotgun-$(date +%Y_%m_%d-%k_%M_%S).png") }, 
+    { MODKEY|ShiftMask,             XK_s,  spawn,          SHCMD("shotgun -s ~/Pictures/shotgun/shotgun-$(date +%Y_%m_%d-%k_%M_%S).png") }, 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
