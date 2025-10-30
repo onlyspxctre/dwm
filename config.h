@@ -67,6 +67,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "chromium", NULL };
+static const char *magnifiercmd[] = { "boomer", NULL };
 
 static const char *brightnessup[] = { "brightnessctl", "s", "5%+" };
 static const char *brightnessdown[] = { "brightnessctl", "s", "5%-" };
@@ -76,6 +77,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,		                XK_Shift_R,spawn,          {.v = termcmd } },
 	{ MODKEY,		                XK_backslash,  spawn,          {.v = browsercmd } },
+{ MODKEY,                   XK_x, spawn,                    { .v = magnifiercmd } }, 
 	{ MODKEY,		                XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -98,9 +100,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { 0,                            XF86XK_MonBrightnessUp, spawn, { .v = brightnessup } }, 
-    { 0,                            XF86XK_MonBrightnessDown, spawn, { .v = brightnessdown } }, 
-    { MODKEY|ShiftMask,             XK_s,  spawn,          SHCMD("shotgun -s ~/Pictures/shotgun/shotgun-$(date +%Y_%m_%d-%k_%M_%S).png") }, 
+{ 0,                            XF86XK_MonBrightnessUp, spawn, { .v = brightnessup } }, 
+{ 0,                            XF86XK_MonBrightnessDown, spawn, { .v = brightnessdown } }, 
+{ MODKEY|ShiftMask,             XK_s,  spawn,          SHCMD("shotgun -s ~/Pictures/shotgun/shotgun-$(date +%Y_%m_%d-%k_%M_%S).png") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
